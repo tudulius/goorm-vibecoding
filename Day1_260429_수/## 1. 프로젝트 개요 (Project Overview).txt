@@ -1,0 +1,114 @@
+## 1. 프로젝트 개요 (Project Overview)
+*   **프로젝트 명:** EzAI Identity Web Implementation
+*   **목적:** AI 에이전트 개발 전문성을 시각화하고, 잠재 고객의 문의(Inquiry)를 유도하는 고감도 랜딩 페이지 구축
+*   **핵심 컨셉:** "High-Tech, Low-Effort" (기술은 고도화되어 있으나, 고객의 경험은 극도로 단순함)
+*   **디자인 레퍼런스:** `litmers.com` (Minimalism, Typography-centric, Smooth Motion, Dark Mode)
+
+---
+
+## 2. 디자인 시스템 (Design System)
+개발 시 스타일 가이드로 활용할 수 있는 구체적인 수치입니다.
+
+*   **Color Palette:**
+    *   **Primary (Background):** `#050505` (Deep Black)
+    *   **Secondary (Surface):** `#121212` (Dark Grey for Cards)
+    *   **Accent (Point):** `#007AFF` (Electric Blue) 또는 `#FFFFFF` (Pure White)
+    *   **Text (Primary):** `#F5F5F7` (Off-white)
+    *   **Text (Secondary):** `#86868B` (Muted Grey)
+*   **Typography:**
+    *   **Heading:** Sans-serif (Inter 또는 SF Pro), Bold, Tight Letter Spacing (-0.02em)
+    *   **Body:** Sans-serif, Regular, Line-height 1.6
+*   **Effects:**
+    *   **Glassmorphism:** `backdrop-filter: blur(10px);` 적용된 네비게이션 바
+    *   **Smooth Scroll:** 섹션 이동 시 부드러운 감속 효과 적용
+
+---
+
+## 3. 컴포넌트별 상세 기능 명세 (Component Specifications)
+
+### 3.1 Navigation Bar (Sticky)
+*   **기능:** 페이지 스크롤 시 상단 고정, 로고 클릭 시 Hero 섹션으로 이동.
+*   **UI 요소:** Logo (Left), Menu Links (Center: Service, Process, Portfolio), [Contact Us] Button (Right - Outline Style).
+*   **Interaction:** 스크롤 시 배경색이 투명에서 `rgba(5, 5, 5, 0.8)`로 변경되는 효과.
+
+### 3.2 Hero Section (The Hook)
+*   **기능:** 브랜드의 첫인상을 결정하는 핵심 섹션.
+*   **Content:**
+    *   `H1`: "From Idea to Autonomous Agent." (Main Headline)
+    *   `P`: "복잡한 코딩 없이, 당신의 아이디어를 스스로 실행하는 AI 에이전트로 변환합니다." (Sub-headline)
+    *   `CTA`: [Start Your Project] (Primary Button)
+*   **Visual/Motion:** 텍니컬한 느낌의 배경에 아주 느리게 움직이는 Gradient Orb(빛의 구체) 또는 텍스트가 아래에서 위로 나타나는 Fade-in 효과.
+
+### 3.3 Service Section (Grid Layout)
+*   **기능:** EzAI의 3대 핵심 서비스를 카드 형태로 나열.
+*   **Structure:** 3-Column Grid Layout.
+*   **Card Components:**
+    *   `Icon`: 미니멀한 Line Icon.
+    *   `Title`: 서비스명 (e.g., Custom Agent Development).
+    *   `Description`: 서비스 상세 설명 (e.g., 특정 도메인에 최적화된 맞춤형 LLM 에이전트 구축).
+*   **Interaction:** 마우스 호버 시 카드가 살짝 떠오르는(Lift-up) 효과와 보더(Border)에 빛이 도는 효과.
+
+### 3.4 Process Section (Vertical Timeline)
+*   **기능:** 고객의 아이디어가 제품이 되는 단계를 시각화.
+*   **Structure:** Vertical Line을 중심으로 좌/우 교차 배치되는 단계별 설명.
+*   **Steps:**
+    1.  **Discovery:** 아이디어 브리핑 및 요구사항 정의.
+    2.  **Blueprint:** 에이전트 로직 및 워크플로우 설계.
+    3.  **Agent Forge:** AI 에이전트 개발 및 학습.
+    4.  **Deployment:** 실 업무 환경에 즉시 배포 및 연동.
+
+### 3.5 Contact Form (Lead Generation)
+*   **기능:** 잠재 고객의 정보를 수집하는 입력 폼.
+*   **Fields:**
+    *   `Name` (Text Input)
+    *   `Email` (Email Input)
+    *   `Project Idea` (Textarea - "당신의 아이디어를 간단히 적어주세요")
+    *   `Budget Range` (Select Box)
+*   **Validation:** 필수 입력값 체크 및 제출 시 "메시지가 전송되었습니다"라는 Toast 알림 표시.
+
+---
+
+## 4. 기술 요구 사항 (Technical Requirements)
+
+### 4.1 Frontend Architecture
+*   **Framework:** `Next.js 14` (App Router 사용)
+*   **Styling:** `Tailwind CSS`
+*   **Animation Library:** `Framer Motion` (모든 인터랙션의 핵심)
+*   **Icons:** `Lucide React`
+
+### 4.2 Performance & SEO
+*   **Lighthouse Score:** Performance, Accessibility, SEO 항목 모두 90점 이상 유지.
+*   **Image Optimization:** Next/Image를 사용하여 WebP 포맷 및 Lazy Loading 적용.
+*   **SEO:** Metadata API를 사용하여 각 페이지별 Title, Description, OpenGraph 이미지 설정.
+
+### 4.3 Data Schema (Portfolio/Service 관리용)
+*   만약 포트폴리오를 관리자 페이지에서 수정하고 싶다면, 아래와 같은 JSON 구조를 가짐:
+```json
+{
+  "portfolio": [
+    {
+      "id": "1",
+      "title": "Automated Sales Agent",
+      "category": "Workflow Automation",
+      "description": "이메일 문의를 분석하여 자동으로 답변을 초안 작성하는 에이전트",
+      "techStack": ["GPT-4", "LangChain", "Python"]
+    }
+  ]
+}
+```
+
+---
+
+## 5. 개발 프로세스 (Implementation Roadmap)
+
+1.  **Phase 1 (Setup):** Next.js 환경 구축, Tailwind 설정, 기본 레이아웃(Nav, Footer) 작업.
+2.  **Phase 2 (Hero & Service):** 메인 카피 배치 및 Framer Motion을 활용한 등장 애니메이션 구현.
+3.  **Phase 3 (Process & Portfolio):** 데이터 기반의 리스트 렌더링 및 타임라인 컴포넌트 구현.
+4.  **Phase 4 (Contact & Backend):** Formspree 또는 API Route를 통한 이메일 전송 기능 연동.
+5.  **Phase 5 (Polish):** 전체적인 스크롤 경험(Smooth Scroll) 점검 및 모바일 반응형 최적화.
+
+---
+
+**💡 이 문서를 활용하는 방법:**
+개발을 시작할 때, AI(예: Cursor)에게 다음과 같이 명령하세요.
+> "첨부한 **[상세 설계서]**를 바탕으로 Next.js와 Tailwind CSS를 사용하여 웹사이트를 개발해줘. 디자인 스타일은 `litmers.com`을 참고하고, 모든 애니메이션은 `Framer Motion`을 사용하여 고급스럽게 구현해줘. 먼저 Navigation과 Hero 섹션부터 코드를 짜줘."
