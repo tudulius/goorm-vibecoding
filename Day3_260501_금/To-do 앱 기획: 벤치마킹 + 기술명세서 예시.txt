@@ -1,0 +1,305 @@
+To-do 앱 기획: 벤치마킹 + 기술명세서 예시
+
+To-do 앱은 “기능은 단순하지만, UX/습관/플랫폼 전략”이 성패를 가르는 대표적인 영역이에요.
+단순 리스트 앱이 아니라 **“생산성 시스템”으로 확장한 사례**를 중심으로 보면 설계 인사이트가 확실히 잡혀요.
+
+---
+
+# 1. 문제 정의
+
+To-do 앱 시장은 이미 포화 상태지만, 실제로는 다음 3가지 축에서 차별화가 발생해요:
+
+* **Task 관리 → Life/Work 시스템으로 확장**
+* **단순 입력 → 자동화 / 추천**
+* **개인 사용 → 협업 / 멀티 디바이스**
+
+👉 즉, 단순 CRUD 앱은 경쟁력이 없고
+👉 “사용자의 행동을 바꾸는 구조”가 핵심이에요.
+
+---
+
+# 2. 지난 10년간 성공적인 To-do 앱 5개
+
+## ① Todoist
+
+![Image](https://images.openai.com/static-rsc-4/CC0S34Ml6yUzOp-jouUu699ssWStPqAy8CxcmBZBMbsizz2MPwNJp4mRmyk-Ce7TJa3myLKxpzJuxPy6_Mg6T3faVG3ip3tD5R40RcUjBPpeXiC1ds6rDfVIiXPiXF2_wThUlh-MCGhEfxRP9U_Zb-0Zlxi2_SIQCm8RyJRrvKht3_3MzHi8FkH0YiUCkXfN?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/s_9przRe98qHdn3YncNSTMTGDwKHzr6yulQlPhKzGE3fZnM8ijQTUl_F4xfaY6f1BCAjHqKDwKqrcgwgYL4xj-cYzTiTRM7McdXQRumgBWKbmzA6gka1VFyJp0WkxZaDVQuluRQ8k5HqDls5eBzC1X1PybdnEHe0eIuO8LBoeWfev_OooYAZjg1UAA6NXBtN?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/3T4Y2oUFHF7YrAWoozc-Oq0mF9dlpHrNWcv0T_e4qHlMwTKyhO-ApXaTxNbS1_3lKv1dbPwsF5n5IIGMjLcbIFwaBdnqsP66S4f9JrmEonziJKvjzsZoENlMeJPsp1u6vYtoZNJdTGVO4ia6iwvpWtGK-zE5qVLOxGVU2mezfET2JZvTpPyQq81EoZbduEnP?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/-BUsFp1FweYr5oQ6c5dgGHEVWGk1VKxnmAEXTbW7mwcU0_oApcsIe2WJl5mhBK040nrpDQecfkbLtoMZ5e4N8kYnRIvLYfMCOVCQ9na-cKbvWA8rfJAkvP3ihNVVAX9w799caa3jJXqAiGUFUlman_niTnqB-kn43ZTjTCaZok802R8XkIzZ_Ij0cpn0wnTY?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/CuDjAJ9gPwtL8u83zLyjPtwo_ASVqVcNmLGzN4Eo4F0nl_K0Hi0QjiVP4WGSahPWUFX_xmY6p2_sm3cgu88apL_NxNmWDleSjcysTElrdOUc06Tu3yZnIGAahOIkKGreVCEP3cPb-SbDe7xm-OpC8p1efnndHt4R1NQ90q9UxKI9LAoAsukj805mz0j1NRKi?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/gLRipe_UeNg8colkYb_tM2Yf9LCLAMYjTdI5YigZ00zaAi7GCY5dwvKMGmxzFsWDnJNuc5cg5W1Rz1ARCQuURq1Eixx3BHFTjmrCroAHrxk9qAS5RAhBCzaZemt4DFN71V6i4WhS4QmVlegDbyJHMoKPiJTPyn61V1njE7nQ3zbwVEL1xvwI_k2GthYbMHpB?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/K723In8ahhHRUvGutLHWg1K34I9t3op_UXw9EBGYPr02ygKM8CWg8fAUcY2rnAXkqjaHyCf1vPCbSyPHdEjt1oKKFVvvxugxAcft9fG3zRzR-_aSW5_QH792fA6t5_VJb03c3-Sstu_M6jF1A_XlUPDhKnh5CsewLsTcaeUwM4wgKr8fxcn5FMYr7D8bVS3F?purpose=fullsize)
+
+### 핵심 전략
+
+* 자연어 입력 (“내일 오전 9시 회의”)
+* 프로젝트 / 라벨 / 필터 구조
+* Karma 시스템 (게임화)
+
+### 설계 포인트
+
+👉 **Task = 데이터 구조화**
+
+* Task → Project → Label → Priority
+
+👉 입문자 앱에 적용
+
+* 최소 구조: `Task + Due Date + Tag`
+
+---
+
+## ② Microsoft To Do
+
+![Image](https://images.openai.com/static-rsc-4/-IHpDMec5hIWGhGVwHDtBjFRa0eL_zXVHhMzJ_sdh0xp0rlPqwwq-ADTMTUQH-kWF-J0WbiryV1hg38Ubs072YnNNmLEsq--AkBV6ZIiKjzoTRxifRY38CSA9Enk_evHjn-UpATKa2erZWEIxrhohb6DMusCgeJerkKiCaGpt5wdvE9tqjI75PavFS0lrifJ?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/c9YT5InnM3eBHU2Dpyko-CqU9v1eKzXJzw3En-1GVsAcd3nlu1vj-8FTVjOB1jhQE7PIgsUaellW_RK2zXONLheI7HQZPjFRjpJNNDcEtYYgY_TAdg2lir35hStIBmQcvj_IQzuU-bVW7zLCfXGkwx715u0m1mdnRmtIsoSIa37UqOsqCnH5JrRzTn2r4bp7?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/ITzGpNh8D_jmTFVeelyTEevARjKWKZrmQxfDtZ46LRDScG0R1HleJ1Msph74Cp0JNVbuqRCPok-AIUzSSujchilKd29i2bxbyC4i_pM5e4c5aailHCWD-bSbLFsIerexBd2W4s5QVn_zbKcCrW33-ESTqOyUJHC43x8SJml6K2EeLaM2vXDuxSE2QyUzFJ8f?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/bJczvXDqgQVK7JwXXon0tfJTQ92zlMnMfQjisjPC291x2B2DiFwCgXJoQLpTyBt-y9bvhZYshoTdMuwJLvaHuJelIVP0U-6ktfjj5BUFc_dw8-i8MEumvTFK9PYsSwJnNwgQ68nTBJ3j3Nv9ittX--I40w5q2Ri9dRrp5BP333Ps16IF07hPSDhG0d_eWLI_?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/HuI8p9x0lYtmR7e11Js19jbdCSthaRFQ-vEyY_rHOK4eNFZ4uAxLwIUqJAzGGPFy-c7_aQa0z_hh7QYjltzIZhvQyRetrx6iaeh2NuOyA7jgy7DZk6N2U7v9GrLDDMckqRPTbH-5ViRZgh6jUThum9uKd-4A0v27gDRnyJcOKQCE_-D1vyZ-dcPxaZO0nx9o?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/mljSCSmrov1QjoNo13-HqS2hqCBWdoTcOMtL98KB6hMTgTEIKtK5N7C9IYwQ3UjlMnjqDSD3290uUO5bKVu9J41K213nRjG1wtWbaxjZAjFKdN7JvxYupBXwI8cgLGvSbxaeaVu0hi23dOgjvwHhGbV0oQrlmsHKSa_wVYtVPbWl3U4qGYUxnWewjbqljLY0?purpose=fullsize)
+
+### 핵심 전략
+
+* Outlook / Microsoft 365 연동
+* "My Day" (오늘 할 일 집중)
+
+### 설계 포인트
+
+👉 **Context-aware UX**
+
+* 오늘 해야 할 일만 보여줌
+
+👉 입문자 앱에 적용
+
+* “Today View” 필수 기능
+
+---
+
+## ③ Things 3
+
+![Image](https://images.openai.com/static-rsc-4/htJRhpkY7pnP7RT_3y29OpfMHN3cy9yy5L6OUsDjYStdHJkoSN6CDRgpue5WfbT9OYk1zU3UQ-DmYHJ8U59CGWZJ2wr749jMUAPT1c5y8oef8qMUcNLG6u9rBqaAn0UXij3vRSPW9qIKhe00D5ZOIenZUsErZratLY94PqYzeRdjlItx83kKZ2Ib4k-05OyG?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/DHHXL8f7IAXP6uuvLH_dXdQsl5EWi7ZLbaGZlgJq_iYiUNvwhUh5qc83u9dwlmtAlFJ-13YpyjC7sjvJ6ARLhOPrUSBCu-AVaHDYaFZOEo9xLarG4YUIyYu3SYQPcZKPHYiYJ7YTZ0bN5DKsoMvIpJxu-XFr9YGl845kS_p-I11bnSIsaFjfY6o9iNTxiR-k?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/kpwB0Be-vvK7kxB0rIpjIuNbbW33MIxFW1TPkrAokSfKFKWnQv2zy4u6Fzoi3QspwdzA5Q5miwxfe-SWIK9ViKZdQyc9xuoYYEGDh-92rjvixG_yaEdl1lszRaiz2k8_TXE0UdLYcQI5UftJ9TTVyJK4oNkezIPeX_DYofYjKHDPhu4iF0yDTY7lu6xQZqS_?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/zZYQeXfO9wpNuzntiJ26dOZY32wuZxAgiLoSBbzwxbBNKi4WxhgbKMTOtk0lmsXV4--3nV1Z-ScLxXe2mCOI8AeQwm03DDba0Yvn6A_q5PATExYXYOivekYUbbcNGIsSwIWNAHmE1NcK_xmlLTYGFIrS6o-LDtgbsJeaEfV8jldXiN6Ah5EDY3ltuptyzZth?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/FvUG7MjKvwtzLN_sfspuLbNLwaOnkXVPZCtw3cADZ7tRGXzEAxNVW_QQ7og5cNigbWATJzEsVhm7WIPiHKZ-GjtW5LRaUeUaBnSHz6jIJD5fE-L7Ksvm4s5VZZkFleaaCjgvr6o5DH44unYSvpro-aEG5DymS14zWAqzWhsMZSAqPcXYxz0sW9XGAdhfYMNy?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/luMg4YyEU3ITqqbpa2d8UaRNNC4Ok-9N8N7foJaYRO_ouRNIoBmbH3k5Q6JgRmA1Jx1iYld9p8wdzwDIw4dbVgcL-Dmu5tCtuDeE9ZQ3BUpAVrCYw1jp3_s_OdgTaHNzH_6-jI__6TK9TSojB9UjEQ-XsOxdrLSxbW6p1pN92RoMAwNdk2pJErqAYvjSq5X5?purpose=fullsize)
+
+### 핵심 전략
+
+* 극단적으로 단순한 UX
+* Apple 생태계 최적화
+
+### 설계 포인트
+
+👉 **UX > 기능**
+
+* 버튼 최소화
+* 빠른 입력
+
+👉 입문자 앱에 적용
+
+* “입력 속도”가 핵심 KPI
+
+---
+
+## ④ TickTick
+
+![Image](https://images.openai.com/static-rsc-4/BuWeWcmSXUT8CT_MWFYbxpmXEZsSZjJcx1SnF5YzahIRQH2X6pfyigibQxY7ZkymUvKp9m4vzOcElSS5jmPgUHpGmFI-tMT5GBcGQ9YGpi-HBtG3fzKS_hqvN_PFwmuE--eI6qGS6hk_QcMroVqO6KKURVffORYIXn3xr6SNERCyveQW0tIX6C3MyWxEYTbq?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/ZnURBi1cFioiUmgZQTV390k6iK-J_PldEWN9Mxip190F7wawq1A6t-3Ppsg99olccGuZ7PwdhyPusew9wxPshieQ5Z76hbk1G3dOjoruKJES4vPE5pqw7PItbPeiy-pD0YeZ8uHLd3vzeFm4tACpkcEQooX-RpxcftfiMGcK7uR1YDq5RGMccwkHm7inNBFH?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/6huNsBKI7AyTbopJinievkcDYbv6Ju7vR7Kz72DBLlrg_g88jV-u6EykfsFaKPeUuz1T4gKKbgrXndXlcnifiJZSYggnnd5E9yU1iPI5vCI-MNP69kZoLX0oATzEVVMecC8Y_BAbQT3WT_A9OL12TT3LWCmy-slrNZ0ypWlpQYqHi31eCxerpNftc6PFgj5D?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/pWxKO1v9AJd8Lpy9IWU8CTDUnv-HY8uoJ-kQvlQi6Kav1re2Ox_TCBUzR0-cP_UwgmdzYTnTP-oGedb4dENING-44NFeQ6qGfQaHZGyF387K7tqMPwzkEhWgEfmPw-icjjDtQUZCZrhInkX4Dwt2MeUU3S22Blroi-V1aUa_zRzcHTVlGBUWiNkC02Fil6Qm?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/v3aSOBdnm3c_Z7-xLn4Yrpbj7r3xLg9qnqfbUQkYEGC9LwkmjkQ-4sz4F6-bpJylW3F9GrgbJglX3vsWLOKayUpVtY5M_Zeaq-Wi5zu6INxk8ifCfIco8wYBnofAMlEfe7rGZWt9JjjXx69S7nyZsomuPCdh8NOtxEDXo_lQmjkudNMsPPSLFbEiqLCom2rR?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/kt9mxMumyCfXFgDzgSc93QBfYmkXqpQMt-XVGEWdVgKY3YBWw5i-ByY1MM2rLKo1UW7YkB8whIfrZOfEKGPASFzuYtp6WMBWx5tQJSbivKRyhVkhdRZvK3jr1lNGgMX9Mf7PmS83HVfQmp62eJqJ-19PYO7RgESlHqZ9oX7Ak8QI23QuvC5iReFeeYTe3uol?purpose=fullsize)
+
+### 핵심 전략
+
+* To-do + 캘린더 + Pomodoro + 습관관리
+* 올인원 생산성 앱
+
+### 설계 포인트
+
+👉 **Task → Time → Habit 연결**
+
+* 단순 리스트를 넘어서 행동 관리
+
+👉 입문자 앱에 적용
+
+* “타이머” 기능 하나만 추가해도 차별화 가능
+
+---
+
+## ⑤ Any.do
+
+![Image](https://images.openai.com/static-rsc-4/aJ43zeF8Neq1DO8YFh5D2B9S4k8lFp79KunXislCVgA4sL-u2LpcNaVMihh1-Cz_bxVsZJa23JWSpHAh1CPpzCjUMX1Mj4qEjrOoleUliX6ofsMaPMuvQgVGriVMgEOPK9RZATCYV21QeypZA0Yyi8rjXcuaDEQZGIW0Pa1QmKKxF3rKhSAOkKTJ-fNkfiL5?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/OUd_yix-m7WMVTygL_WucZxerWY5Q3MPORsrhmqqq78sAJ1AnCXqC3HPlq0__gPEWYqo7GcKDFvwW7OYrLIgIYjNUyQjvi4wpMGiTWc4oQn4tVMRByYLxDrfRajk06bplfjLOuIw_7x1U51m9O-q4eY2lsK0bN0lOb8NSJurOIDTAINyy3GUnvR9ADJI1c06?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/KXVn_khDHo1wFvdl6hHYxa7wR8FSlhPu-9dWLRz7pClgMEQ2Jyi_xcmXeaDulhBzFnIinEYYPNKNp6PegxFukMPRyeGz9MheJVzAvg_wysoTWSkwCds61oqt-E8GCc0SYmwhYe5T361h-VV4qkfNNk24vr6WyvHZw1DHt6BqcruxOIsvWfKmCAMLA-X349xi?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/T4xZeNGboFAsKToYQbJ27gdsRAQvapHbNb4CIRZL1nJvC50XGiKvc1TOV5ne7JVf_8W_nTYhG1I_3XAMfYjTJuQMFjUENl9koaXM--qiL_3SEHEhSwmUZoTFQmwQ8bzgIs3CNq7Wu6YHZMTnYl8lfStmRFf2TSoF7ZTe1WbCAfGey02c6efGNY4dykGnXa5K?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/9vRb-hyzSC6Hj5rPWE5bqaIZC9nnVc69PqwKonOezFGUFvKlYSDp9pSnjX7hXnCvSSoCNlB7H-uKAWkGX39C3AbBSh5bf1etdUmQMOUl-60Lvu_O0x9FW6XEeZaBfWBjl9ZZEEdCLziwWX3KL7sFxnCKa8TY_wzRL9c-TsGk_CKwmoZcdDA100CRpHJzttPe?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/SFnS6Pu9Gl_w8A9ftJr4PAVKDWw5oYYvnjtC9vwQ0t0tOPvqC0AvqFGUte3WdNjK41TVl9NNDSe1lH1DxVlFMREly7_0L0jwzhz8oW5AhUK2E2aS7hUD4NMHC2CVyNL9M7m6NStRAHj3ig4jd9SuVAzl2azienXiJuSctJ0QV3eljeXlw6zEd6frHmE7phHB?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/Y4Fp4TtbfA8dz4uVZAjDm7KQDjRFC_ye9Gr9Pb3L1vhIpHYYpNtZjrcaBUd7cN4Do694CCpILoI2mXb2jsMsc30Fy8b2J8haUqvUGKaNxD6ofuEphwM4TuBEgmtTtL-3HkEalNQrhM_3lfdq0Ljr84xYErbdo0Zf-ZINuGld3ot9RAyiVoT_oFQE7wzCbtsE?purpose=fullsize)
+
+### 핵심 전략
+
+* 음성 입력
+* 제스처 기반 UX
+* Daily Planning Flow
+
+### 설계 포인트
+
+👉 **입력 friction 최소화**
+
+* 타이핑 → 음성 → 클릭 최소화
+
+👉 입문자 앱에 적용
+
+* “Quick Add 버튼” 필수
+
+---
+
+# 3. 공통 패턴 (핵심 인사이트)
+
+## ✔️ 성공 앱의 구조
+
+```
+Task Input → Organize → Focus → Execute → Feedback
+```
+
+| 단계       | 핵심 기능            |
+| -------- | ---------------- |
+| Input    | 빠른 입력 (자연어 / 버튼) |
+| Organize | 태그 / 프로젝트        |
+| Focus    | Today View       |
+| Execute  | 알림 / 타이머         |
+| Feedback | 완료 체크 / 통계       |
+
+---
+
+# 4. 입문자용 To-do 앱 설계 전략
+
+## 🎯 MVP 구조 (HTML/CSS/JS 기준)
+
+### 필수 기능
+
+* Task 추가 / 삭제
+* 완료 체크
+* Today 필터
+* LocalStorage 저장
+
+### 추천 구조
+
+```javascript
+Task = {
+  id,
+  title,
+  completed,
+  dueDate,
+  createdAt
+}
+```
+
+---
+
+## 🧠 UX 핵심 3가지
+
+1. 입력은 1초 안에 끝나야 함
+2. 오늘 할 일만 보여줘야 함
+3. 완료 시 즉각적인 피드백
+
+---
+
+# 5. 모델/AI 확장 전략 (설계 관점)
+
+## GPT vs Gemini vs Claude
+
+| 역할          | 추천 모델  |
+| ----------- | ------ |
+| 자연어 Task 생성 | GPT    |
+| 음성/이미지 입력   | Gemini |
+| 긴 일정/문서 분석  | Claude |
+
+---
+
+## AI 기능 추가 아이디어
+
+* “오늘 할 일 자동 추천”
+* “미루는 습관 분석”
+* “업무 vs 개인 Task 자동 분류”
+
+👉 이건 **Agent 구조로 확장 가능**
+
+---
+
+# 6. 구현 아키텍처 (초급 → 고급)
+
+### Level 1 (입문)
+
+* HTML + CSS + Vanilla JS
+* LocalStorage
+
+### Level 2
+
+* React / Vue
+* Firebase
+
+### Level 3 (AI Agent)
+
+* GPT API
+* Task 추천 Agent
+* Calendar 연동
+
+---
+
+# 7. Trade-off
+
+| 선택    | 장점     | 단점          |
+| ----- | ------ | ----------- |
+| 단순 UI | 빠른 개발  | 차별화 부족      |
+| 기능 추가 | 경쟁력 상승 | 복잡도 증가      |
+| AI 도입 | 차별화    | 비용 + 설계 난이도 |
+
+---
+
+# 👉 결론 (중요)
+
+To-do 앱은 기능 싸움이 아니라
+👉 **“사용자의 행동을 바꾸는 UX 설계 게임”이에요**
+
+입문자 프로젝트라면:
+
+👉 “Todoist + Microsoft To Do의 중간 형태”
+
+* 빠른 입력
+* Today 중심 UX
+
+이 조합이 가장 성공 확률 높아요.
+
+---
+
+원하면 다음 단계로
+👉 “HTML/CSS/JS 기반 To-do 앱 기술명세서 + 코드 구조”까지 바로 설계해줄게요.
